@@ -12,13 +12,10 @@ private:
 
 public:
     bool isHappy(int n) {
-        set<int> hmap;
-        hmap.insert(n); int next_num = 0;
-        while (n != 1) {
-            next_num = getNext(n);
-            if (hmap.count(next_num)) return false;
-            hmap.insert(next_num);
-            n = next_num;
-        } return true;
+        int slow = n; int fast = getNext(n);
+        while (fast!=1 && slow!=fast) {
+            slow = getNext(slow);
+            fast = getNext(getNext(fast));
+        } return fast==1;
     }
 };
