@@ -1,3 +1,5 @@
+// O(N^2)
+
 class Solution {
 public:
     string swap_string(string &s, int x, int y) {
